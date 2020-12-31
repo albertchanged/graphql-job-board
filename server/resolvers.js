@@ -1,7 +1,8 @@
 const db = require("./db");
 
-// Resolve all Jobs
+// Resolve individual Job, and all Jobs
 const Query = {
+  job: (root, {id}) => db.jobs.get(id),
   jobs: () => db.jobs.list(),
 }
 
