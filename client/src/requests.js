@@ -55,3 +55,30 @@ export async function loadJobs() {
 
   return responseBody.data.jobs;
 }
+
+export async function loadCompany(id) {
+  const response = await fetch(endpointURL, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      query: `
+        query CompanyQuery($id: ID!) {
+          company(id: $id) {
+            id
+            name
+            description
+          }
+        }
+      `,
+      variables: {
+        id
+      }
+    })
+  });
+
+  const responseBody = await response.json();
+
+  return responseBody.data.company;
+}

@@ -4,6 +4,7 @@ const db = require("./db");
 const Query = {
   job: (root, {id}) => db.jobs.get(id),
   jobs: () => db.jobs.list(),
+  company: (root, {id}) => db.companies.get(id)
 }
 
 // Resolve the Company referenced by a Job's companyId
