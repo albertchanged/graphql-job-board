@@ -3,7 +3,7 @@ import { JobList } from './JobList';
 import { loadJobs } from "./requests";
 
 export class JobBoard extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       jobs: []
