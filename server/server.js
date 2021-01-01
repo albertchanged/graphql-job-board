@@ -24,7 +24,7 @@ const typeDefs = gql(
 );
 const resolvers = require("./resolvers");
 const context = ({req}) => ({
-  user: req.user
+  user: req.user && db.users.get(req.user.sub)
 });
 const apolloServer = new ApolloServer({
   typeDefs,

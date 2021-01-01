@@ -22,5 +22,11 @@
     "companyId": "SJV0-wdOM",
     "title": "Web Developer",
     "description": "We are looking for a Web Developer familiar with HTML, CSS, and Bootstrap."
+  },
+  {
+    "id": "SJ06Clhav",
+    "title": "DevOps Engineer",
+    "description": "We are looking for a DevOps Engineer who will turn on our servers when they fall over.",
+    "companyId": "HJRa-DOuG"
   }
 ]
