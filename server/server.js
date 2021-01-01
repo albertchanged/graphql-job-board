@@ -23,11 +23,18 @@ const typeDefs = gql(
   })
 );
 const resolvers = require("./resolvers");
-const apolloServer = new ApolloServer({typeDefs, resolvers});
+const context = ({req}) => ({
+  user: req.user
+});
+const apolloServer = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context
+});
 // Plug ApolloServer into Express app and, optionally, a path
 apolloServer.applyMiddleware({app, path: "/graphql"});
 
-
+// Log in from front end
 app.post('/login', (req, res) => {
   const {email, password} = req.body;
   const user = db.users.list().find((user) => user.email === email);
